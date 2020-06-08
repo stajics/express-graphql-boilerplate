@@ -1,0 +1,44 @@
+{
+  "name": "express-graphql-boilerplate",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "yarn start:local",
+    "start:local": "NODE_ENV=local nodemon index.js",
+    "test": "LOG_LEVEL=error SILENCE_ERRORS=true NODE_ENV=test jest --coverage --verbose --runInBand --detectOpenHandles"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "apollo-datasource": "^0.7.1",
+    "apollo-server-express": "^2.14.1",
+    "bcrypt": "^4.0.1",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "graphql": "^15.0.0",
+    "jsonwebtoken": "^8.5.1",
+    "lodash": "^4.17.15",
+    "mongoose": "^5.9.17",
+    "passport": "^0.4.1",
+    "passport-local": "^1.0.0",
+    "winston": "^3.2.1"
+  },
+  "devDependencies": {
+    "apollo-server-testing": "^2.14.2",
+    "jest": "^26.0.1",
+    "nodemon": "^2.0.4",
+    "prettier": "2.0.5"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "collectCoverageFrom": [
+      "config/passport/*.js",
+      "server/controllers/*.js",
+      "server/middlewares/*.js",
+      "server/validators/*.js",
+      "server/routes/*.js",
+      "server/models/*.js"
+    ]
+  }
+}
