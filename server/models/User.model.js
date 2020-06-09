@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
+const { USER_ROLES } = require('../schema/directives/auth.directive');
 
 const User = new mongoose.Schema(
   {
@@ -22,6 +23,12 @@ const User = new mongoose.Schema(
     lastName: {
       type: String,
       required: [true, 'User last name required'],
+      trim: true,
+    },
+    role: {
+      type: String,
+      enum: [USER_ROLES.USER, USER_ROLES.ADMIN],
+      default: USER_ROLES.USER,
       trim: true,
     },
   },

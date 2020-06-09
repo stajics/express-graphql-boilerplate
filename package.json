@@ -12,11 +12,12 @@
   "license": "ISC",
   "dependencies": {
     "apollo-datasource": "^0.7.1",
-    "apollo-server-express": "^2.14.1",
+    "apollo-server-express": "^2.14.2",
     "bcrypt": "^4.0.1",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "graphql": "^15.0.0",
+    "graphql-tools": "^6.0.9",
     "jsonwebtoken": "^8.5.1",
     "lodash": "^4.17.15",
     "mongoose": "^5.9.17",
@@ -38,7 +39,8 @@
       "server/middlewares/*.js",
       "server/validators/*.js",
       "server/routes/*.js",
-      "server/models/*.js"
+      "server/models/*.js",
+      "server/schema/**/*.js"
     ]
   }
 }
