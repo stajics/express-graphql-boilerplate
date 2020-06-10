@@ -1,4 +1,5 @@
 const { ApolloServer } = require('apollo-server-express');
+const ApolloTestServer = require('../test/_testUtils/ApolloTestServer');
 const {
   typeDefs,
   resolvers,
@@ -7,12 +8,14 @@ const {
   dataSources,
 } = require('../server/schema');
 
-const server = new ApolloServer({
+const serverConfig = {
   typeDefs,
   resolvers,
   dataSources,
   context,
   schemaDirectives: directives,
-});
+};
+
+const server = process.env.NODE_ENV === 'test' ? new ApolloTestServer(serverConfig) : new ApolloServer(serverConfig);
 
 module.exports = server;

@@ -3,6 +3,8 @@ const User = require('mongoose').model('User');
 
 const config = require('../../config');
 
+const { USER_ROLES } = require('../../server/schema/directives/auth.directive');
+
 global.fixtures = {
   users: [],
 };
@@ -15,6 +17,7 @@ const initUsers = async () => {
     password: 'password',
     firstName: 'user1_name',
     lastName: 'user1_lastname',
+    role: USER_ROLES.USER,
   });
   let newUser2 = new User({
     _id: '289b5b4aa79dff2f7fe6759d',
@@ -22,6 +25,7 @@ const initUsers = async () => {
     password: 'password',
     firstName: 'user2_name',
     lastName: 'user2_lastname',
+    role: USER_ROLES.USER,
   });
   let newUser3 = new User({
     _id: '389b5b4aa79dff2f7fe6859d',
@@ -29,6 +33,7 @@ const initUsers = async () => {
     password: 'password',
     firstName: 'user3_name',
     lastName: 'user3_lastname',
+    role: USER_ROLES.ADMIN,
   });
 
   newUser1 = await newUser1.save();

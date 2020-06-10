@@ -7,6 +7,9 @@ const UsersAPI = require('./datasources/users.api');
 const { AuthDirective } = require('./directives/auth.directive');
 const config = require('../../config');
 
+const userQueryResolver = require('./queries/user.query');
+const meQueryResolver = require('./queries/me.query');
+
 const typeDefs = gql`
   enum Role {
     ADMIN
@@ -35,6 +38,7 @@ const typeDefs = gql`
   }
 
   type Query @auth(requires: USER) {
+    me: AuthUser
     user(id: ID!): User
   }
 
@@ -53,11 +57,8 @@ const typeDefs = gql`
 
 const resolvers = {
   Query: {
-    user: async (parent, { id }, { dataSources }, info) => {
-      const user = await dataSources.usersAPI.findOne(id);
-      console.log(user);
-      return user.toResponse();
-    },
+    user: userQueryResolver,
+    me: meQueryResolver
   },
   Mutation: {
     createUser,
