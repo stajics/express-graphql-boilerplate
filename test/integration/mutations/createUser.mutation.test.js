@@ -14,7 +14,7 @@ const CREATE_USER = gql`
       firstName: $firstName
       lastName: $lastName
     ) {
-      id
+      _id
       token
       email
     }
@@ -33,7 +33,7 @@ describe('Mutation :createUser', () => {
       },
     });
 
-    expect(typeof res.data.createUser.id).toBe('string');
+    expect(typeof res.data.createUser._id).toBe('string');
     expect(typeof res.data.createUser.email).toBe('string');
     expect(typeof res.data.createUser.token).toBe('string');
     done();

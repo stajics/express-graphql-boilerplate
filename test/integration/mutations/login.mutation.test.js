@@ -4,7 +4,7 @@ require('../../index');
 const LOGIN = gql`
   mutation login($email: String!, $password: String!) {
     login(email: $email, password: $password) {
-      id
+      _id
       token
       email
     }
@@ -21,7 +21,7 @@ describe('Mutation :login', () => {
       },
     });
 
-    expect(typeof res.data.login.id).toBe('string');
+    expect(typeof res.data.login._id).toBe('string');
     expect(typeof res.data.login.email).toBe('string');
     expect(typeof res.data.login.token).toBe('string');
     done();

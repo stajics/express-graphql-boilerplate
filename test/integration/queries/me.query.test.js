@@ -4,7 +4,7 @@ require('../../index');
 const ME = gql`
   query {
     me {
-      id
+      _id
       email
       firstName
     }
@@ -19,7 +19,7 @@ describe('Query :me', () => {
       query: ME
     });
 
-    expect(String(res.data.me.id)).toEqual(fixtures.users[0]._id.toString());
+    expect(String(res.data.me._id)).toEqual(fixtures.users[0]._id.toString());
     expect(res.data.me.email).toEqual(fixtures.users[0].email);
     done();
   });

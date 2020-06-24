@@ -31,9 +31,6 @@ const User = new mongoose.Schema(
       default: USER_ROLES.USER,
       trim: true,
     },
-  },
-  {
-    strict: true,
   }
 );
 
@@ -44,7 +41,6 @@ class UserClass {
 
   toResponse() {
     const responseObj = this.toObject();
-    responseObj.id = responseObj._id;
     delete responseObj.password;
 
     return responseObj;
