@@ -38,7 +38,7 @@ module.exports = new PassportLocalStrategy(
 
       return next(null, token, user);
     } catch (err) {
-      next(err);
+      return next(err);
     }
   }
 );

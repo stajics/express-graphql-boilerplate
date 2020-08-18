@@ -11,7 +11,6 @@ const User = new mongoose.Schema({
   },
   password: {
     type: String,
-    required: [true, 'User password required'],
     trim: true,
   },
   firstName: {
@@ -54,7 +53,7 @@ User.pre('save', async function beforeSave(next) {
 
     return next();
   } catch (err) {
-    next(err);
+    return next(err);
   }
 });
 

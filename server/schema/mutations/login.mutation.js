@@ -8,7 +8,7 @@ const login = async (_, { email, password }) => {
       const data = user.toResponse();
       data.token = token;
 
-      resolve(data);
+      return resolve(data);
     })({ body: { email, password } });
   });
 };

@@ -24,6 +24,10 @@ module.exports.JWT_EXPIRES_IN = process.env.JWT_EXPIRES_IN;
 module.exports.JWT_PASSWORD_RESET_SECRET_KEY =
   process.env.JWT_PASSWORD_RESET_SECRET_KEY;
 
+module.exports.GOOGLE_CLIENT_ID = process.env.GOOGLE_CLIENT_ID;
+module.exports.GOOGLE_CLIENT_SECRET = process.env.GOOGLE_CLIENT_SECRET;
+module.exports.GOOGLE_CALLBACK_URL = process.env.GOOGLE_CALLBACK_URL;
+
 module.exports.VALID_ATTACHMENT_MODELS = [
   'Comment',
   'Discussion',

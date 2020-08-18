@@ -1,6 +1,7 @@
 const { gql } = require('apollo-server-express');
 const jwt = require('jsonwebtoken');
 const User = require('mongoose').model('User');
+const Friendship = require('mongoose').model('Friendship');
 const createUser = require('./mutations/createUser.mutation');
 const login = require('./mutations/login.mutation');
 const sendFriendshipRequest = require('./mutations/sendFriendshipRequest.mutation');
@@ -104,11 +105,12 @@ const context = async ({ req }) => {
     // add the user to the context
     return { user };
   }
+  return {};
 };
 
 const store = {
-  User: require('mongoose').model('User'),
-  Friendship: require('mongoose').model('Friendship'),
+  User,
+  Friendship,
 };
 
 module.exports.typeDefs = typeDefs;
