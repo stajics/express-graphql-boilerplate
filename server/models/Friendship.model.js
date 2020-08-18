@@ -2,18 +2,18 @@ const mongoose = require('mongoose');
 
 const FRIENDSHIP_STATUS = {
   PENDING: 'PENDING',
-  ACCEPTED: 'ACCEPTED'
-}
+  ACCEPTED: 'ACCEPTED',
+};
 
 const Friendship = new mongoose.Schema({
-  from: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
-  to: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
+  from: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
+  to: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
   status: {
     type: String,
     enum: [FRIENDSHIP_STATUS.ACCEPTED, FRIENDSHIP_STATUS.PENDING],
     default: FRIENDSHIP_STATUS.PENDING,
     trim: true,
-  }
+  },
 });
 
 class FriendshipClass {
@@ -28,5 +28,5 @@ Friendship.loadClass(FriendshipClass);
 
 module.exports = {
   FRIENDSHIP_STATUS,
-  Friendship: mongoose.model('Friendship', Friendship)
-}
+  Friendship: mongoose.model('Friendship', Friendship),
+};

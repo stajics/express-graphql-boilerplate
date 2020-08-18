@@ -16,6 +16,9 @@ const serverConfig = {
   schemaDirectives: directives,
 };
 
-const server = process.env.NODE_ENV === 'test' ? new ApolloTestServer(serverConfig) : new ApolloServer(serverConfig);
+const server =
+  process.env.NODE_ENV === 'test'
+    ? new ApolloTestServer(serverConfig)
+    : new ApolloServer(serverConfig);
 
 module.exports = server;

@@ -2,8 +2,8 @@ const { isEmpty } = require('lodash');
 const jwt = require('jsonwebtoken');
 const User = require('mongoose').model('User');
 const PassportLocalStrategy = require('passport-local').Strategy;
-const config = require('../');
 const { AuthenticationError } = require('apollo-server-express');
+const config = require('..');
 
 module.exports = new PassportLocalStrategy(
   {

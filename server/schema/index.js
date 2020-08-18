@@ -80,7 +80,7 @@ const resolvers = {
   User: userQueryResolver,
   Friendship: {
     from: userQueryResolver,
-    to: userQueryResolver
+    to: userQueryResolver,
   },
   Mutation: {
     createUser,

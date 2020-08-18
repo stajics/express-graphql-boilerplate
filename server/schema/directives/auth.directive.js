@@ -4,8 +4,8 @@ const { AuthenticationError } = require('apollo-server-express');
 
 const USER_ROLES = {
   USER: 'USER',
-  ADMIN: 'ADMIN'
-}
+  ADMIN: 'ADMIN',
+};
 
 class AuthDirective extends SchemaDirectiveVisitor {
   visitObject(type) {
@@ -45,10 +45,14 @@ class AuthDirective extends SchemaDirectiveVisitor {
         const canView = {
           [USER_ROLES.ADMIN]: [USER_ROLES.ADMIN],
           [USER_ROLES.USER]: [USER_ROLES.ADMIN, USER_ROLES.USER],
-        }
+        };
 
-        if (!canView[requiredRole].includes(context.user && context.user.role)) {
-          throw new AuthenticationError(`Not Authorized. Requiers ${requiredRole}.`);
+        if (
+          !canView[requiredRole].includes(context.user && context.user.role)
+        ) {
+          throw new AuthenticationError(
+            `Not Authorized. Requiers ${requiredRole}.`
+          );
         }
 
         return resolve.apply(this, args);
@@ -59,5 +63,5 @@ class AuthDirective extends SchemaDirectiveVisitor {
 
 module.exports = {
   USER_ROLES,
-  AuthDirective
+  AuthDirective,
 };

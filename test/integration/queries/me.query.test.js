@@ -16,7 +16,7 @@ describe('Query :me', () => {
     server.login(fixtures.users[0]);
 
     const res = await query({
-      query: ME
+      query: ME,
     });
 
     expect(String(res.data.me._id)).toEqual(fixtures.users[0]._id.toString());

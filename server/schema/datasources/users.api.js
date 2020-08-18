@@ -11,7 +11,13 @@ class UsersAPI extends DataSource {
   }
 
   createUser({ email, password, firstName, lastName, role }) {
-    const user = new this.store.User({ email, password, firstName, lastName, role });
+    const user = new this.store.User({
+      email,
+      password,
+      firstName,
+      lastName,
+      role,
+    });
     return user;
   }
 

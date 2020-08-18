@@ -1,16 +1,16 @@
-const dotenv = require("dotenv");
+const dotenv = require('dotenv');
 
 if (process.env.NODE_ENV) {
   dotenv.config({
     path: `./.env.${process.env.NODE_ENV}`,
   });
 } else {
-  throw new Error("NODE_ENV must be defined");
+  throw new Error('NODE_ENV must be defined');
 }
 
 module.exports.HOST = process.env.HOST;
 module.exports.PORT = process.env.PORT;
-module.exports.PROTOCOL = process.env.SSL === true ? "https" : "http";
+module.exports.PROTOCOL = process.env.SSL === true ? 'https' : 'http';
 
 module.exports.LOG_LEVEL = process.env.LOG_LEVEL;
 module.exports.LOGGLY_TOKEN = process.env.LOGGLY_TOKEN;
@@ -25,26 +25,26 @@ module.exports.JWT_PASSWORD_RESET_SECRET_KEY =
   process.env.JWT_PASSWORD_RESET_SECRET_KEY;
 
 module.exports.VALID_ATTACHMENT_MODELS = [
-  "Comment",
-  "Discussion",
-  "File",
-  "Document",
-  "Message",
-  "SubTask",
-  "Task",
-  "Milestone",
-  "Share",
+  'Comment',
+  'Discussion',
+  'File',
+  'Document',
+  'Message',
+  'SubTask',
+  'Task',
+  'Milestone',
+  'Share',
 ];
 module.exports.VALID_FILE_ASSOCIATION_MODELS = [
-  "User",
-  "Project",
-  "Comment",
-  "Discussion",
-  "File",
-  "Document",
-  "Message",
-  "SubTask",
-  "Task",
-  "Milestone",
-  "Share",
+  'User',
+  'Project',
+  'Comment',
+  'Discussion',
+  'File',
+  'Document',
+  'Message',
+  'SubTask',
+  'Task',
+  'Milestone',
+  'Share',
 ];

@@ -7,11 +7,18 @@ const appConfig = require('./');
 const logger = createLogger({
   level: appConfig.LOG_LEVEL || 'silly',
   transports: [
-    new (transports.Console)({
+    new transports.Console({
       colorize: true,
       name: 'console',
       timestamp: () => new Date(),
-      formatter: options => `${config.colorize(options.level, options.level.toUpperCase())}: ${(options.message ? options.message : '')} ${(options.meta && Object.keys(options.meta).length ? `\n\t ${util.inspect(options.meta)}` : '')}`,
+      formatter: (options) =>
+        `${config.colorize(options.level, options.level.toUpperCase())}: ${
+          options.message ? options.message : ''
+        } ${
+          options.meta && Object.keys(options.meta).length
+            ? `\n\t ${util.inspect(options.meta)}`
+            : ''
+        }`,
     }),
     // new LogglyTransport({
     //   token: appConfig.LOGGLY_TOKEN,
